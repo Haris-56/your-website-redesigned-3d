@@ -83,7 +83,7 @@ export default function Page() {
       </section>
 
       {/* 2. SCROLLYTELLING INTRODUCTION */}
-      <section className="relative min-h-[150vh] flex items-start justify-center">
+      <section className="relative min-h-[100vh] md:min-h-[150vh] flex items-start justify-center">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center px-4 overflow-hidden bg-background">
           <div className="max-w-6xl mx-auto flex flex-col items-center px-2">
             <motion.h2 
@@ -110,9 +110,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 3. PARALLAX HORIZONTAL SCROLL SERVICES */}
-      <section ref={horizontalRef} className="relative h-[500vh]">
-        <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden bg-background">
+      {/* 3. PARALLAX HORIZONTAL SCROLL SERVICES (DESKTOP) & VERTICAL (MOBILE) */}
+      <section ref={horizontalRef} className="relative h-auto md:h-[500vh]">
+        {/* DESKTOP LAYOUT */}
+        <div className="hidden md:flex sticky top-0 h-screen w-full md:items-center overflow-hidden bg-background">
           <motion.div 
             style={{ x: xTransform }}
             className="flex h-full items-center gap-8 md:gap-16 px-[5vw] md:px-[10vw]"
@@ -137,9 +138,7 @@ export default function Page() {
                   alt={svc.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" 
                 />
-                {/* Dark overlay for strong white text contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/40 to-transparent opacity-90 transition-opacity duration-1000 group-hover:opacity-80" />
-                
                 <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end text-[#F4F1EA]">
                   <div className="overflow-hidden mb-4">
                     <span className="block font-mono text-sm md:text-lg text-primary font-bold tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
@@ -156,6 +155,46 @@ export default function Page() {
               </div>
             ))}
           </motion.div>
+        </div>
+
+        {/* MOBILE LAYOUT */}
+        <div className="md:hidden flex flex-col w-full px-4 pt-4 pb-24 bg-background">
+          <div className="mb-12">
+              <p className="text-accent font-mono text-xs tracking-widest uppercase mb-4 font-bold">Our Capabilities</p>
+              <h2 className="text-5xl font-heading font-bold tracking-tighter text-foreground leading-[1] break-words">
+                Masterful<br/>
+                <span className="italic text-primary font-medium">Craftsmanship.</span>
+              </h2>
+              <p className="mt-6 text-lg text-foreground font-light max-w-xl leading-relaxed">
+                A spectrum of services from foundation to roof. From <b className="font-bold">room additions under $50,000</b> to sweeping exterior overhauls, building science dictates our entire process.
+              </p>
+          </div>
+          <div className="flex flex-col gap-6 w-full">
+            {services.map((svc) => (
+                <motion.div 
+                  key={svc.id} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: 0.6 }}
+                  className="w-full h-[60vh] relative group rounded-2xl overflow-hidden shadow-lg border border-border"
+                >
+                  <img 
+                    src={svc.img} 
+                    alt={svc.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-90" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent" />
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end text-[#F4F1EA]">
+                    <span className="block font-mono text-sm text-primary font-bold tracking-widest mb-2">0{svc.id} / 05</span>
+                    <h3 className="text-3xl font-heading font-bold tracking-tighter mb-2 text-white leading-tight">{svc.title}</h3>
+                    <p className="text-base font-medium text-[#F4F1EA]/90 leading-relaxed">
+                      {svc.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+          </div>
         </div>
       </section>
 

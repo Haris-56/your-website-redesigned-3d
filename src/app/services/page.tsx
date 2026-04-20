@@ -32,7 +32,7 @@ export default function ServicesPage() {
       </section>
 
       <div className="max-w-7xl mx-auto flex flex-col items-start px-4 md:px-6 pb-20 md:pb-32 w-full">
-        <div className="flex flex-col w-full gap-24 md:gap-32 w-full">
+        <div className="flex flex-col w-full gap-16 md:gap-32 w-full">
           {servicesDetails.map((group, index) => (
             <motion.div 
               key={index}
@@ -40,7 +40,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 md:gap-16 lg:gap-24 items-center w-full`}
+              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 md:gap-16 lg:gap-24 items-center w-full`}
             >
               {/* Image Reveal */}
               <div className="w-full lg:w-1/2 aspect-[4/5] relative overflow-hidden rounded-[1.5rem] md:rounded-2xl shadow-xl group border border-border flex-shrink-0">
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                 <ul className="flex flex-col gap-4 md:gap-6">
                   {group.items.map((item, i) => (
                     <li key={i} className="flex items-center text-xl md:text-2xl lg:text-3xl font-light text-foreground/80 leading-snug">
-                      <span className="w-6 md:w-8 h-[2px] bg-accent mr-4 flex-shrink-0" />
+                      <span className="w-4 md:w-8 h-[2px] bg-accent mr-4 flex-shrink-0" />
                       <span className="break-words">{item}</span>
                     </li>
                   ))}

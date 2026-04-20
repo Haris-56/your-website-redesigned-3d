@@ -22,24 +22,24 @@ export default function CertificationsPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-7xl px-6 text-center"
+          className="relative z-10 w-full max-w-7xl px-4 md:px-6 text-center"
         >
-          <div className="bg-[#F4F1EA]/80 backdrop-blur-xl border border-border/50 py-2 px-6 rounded-full inline-block mb-6 shadow-lg">
-             <p className="text-foreground font-mono text-sm tracking-[0.3em] font-bold uppercase">Credentials that matter</p>
+          <div className="bg-[#F4F1EA]/80 backdrop-blur-xl border border-border/50 py-2 px-4 md:px-6 rounded-full inline-block mb-4 md:mb-6 shadow-lg">
+             <p className="text-foreground font-mono text-[10px] md:text-sm tracking-[0.3em] font-bold uppercase">Credentials that matter</p>
           </div>
-          <h1 className="text-5xl md:text-[7vw] font-heading font-bold tracking-tighter text-foreground leading-[1.1]">
+          <h1 className="text-4xl md:text-[7vw] font-heading font-bold tracking-tighter text-foreground leading-[1.1]">
              Setting the <br/><span className="italic text-primary font-light">standard.</span>
           </h1>
-          <div className="mt-8 mx-auto max-w-3xl bg-[#F4F1EA]/80 backdrop-blur-md p-6 rounded-2xl border border-border/30 shadow-xl">
-             <p className="text-xl text-foreground font-light leading-relaxed">
+          <div className="mt-8 mx-auto max-w-3xl bg-[#F4F1EA]/80 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-border/30 shadow-xl">
+             <p className="text-base md:text-xl text-foreground font-light leading-relaxed">
                Frank E. Malpere Jr. is the only Certified Graduate Remodeler in the area. We hold the industry's highest standards, focusing heavily on modern building science to ensure longevity and efficiency.
              </p>
           </div>
         </motion.div>
       </section>
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center px-6 pb-32 text-center relative z-10">
-        <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl text-left mb-32">
+      <div className="max-w-7xl mx-auto flex flex-col items-center px-4 md:px-6 pb-20 md:pb-32 text-center relative z-10">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full max-w-6xl text-left mb-12 md:mb-32">
           {certs.map((cert, index) => (
             <motion.div 
               key={index}
@@ -47,7 +47,7 @@ export default function CertificationsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-              className="p-10 rounded-[2rem] border border-border bg-surface hover:bg-white transition-all duration-700 relative flex flex-col justify-between w-full sm:w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] h-[280px] shadow-sm hover:shadow-2xl hover:-translate-y-4 group overflow-hidden"
+              className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] border border-border bg-surface hover:bg-white transition-all duration-700 relative flex flex-col justify-between w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-22px)] h-[240px] md:h-[280px] shadow-sm hover:shadow-2xl hover:-translate-y-4 group overflow-hidden"
             >
                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                <span className="text-[120px] font-heading font-black text-foreground mix-blend-overlay opacity-[0.03] absolute -bottom-10 -right-4 pointer-events-none select-none group-hover:scale-110 group-hover:opacity-[0.06] transition-all duration-700">{cert.abbr}</span>
